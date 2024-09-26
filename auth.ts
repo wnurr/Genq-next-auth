@@ -5,13 +5,13 @@ import authConfig from "@/auth.config";
 import { getUserById } from "@/data/user";
 import { getTwoFactorConfirmationByUserId } from "@/data/two-factor-confirmation";
 import { getAccountByUserId } from "./data/account";
+import { UserRole } from "@prisma/client";
 
 export const { 
     handlers: { GET, POST },
     auth,
     signIn,
     signOut,
-    update,
 } = NextAuth({
     pages: {
         signIn: "/auth/login",
@@ -55,7 +55,7 @@ export const {
             }
 
             if (token.role && session.user) {
-                session.user.role = token.role;
+                session.user.role = token.role as UserRole;
             }
 
             if (session.user) {
@@ -64,7 +64,7 @@ export const {
 
             if (session.user) {
                 session.user.name = token.name;
-                session.user.email = token.email;
+                session.user.email = token.email as string;
                 session.user.isOAuth = token.isOAuth as boolean;
             }
 

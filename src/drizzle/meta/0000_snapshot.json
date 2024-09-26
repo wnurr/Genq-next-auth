@@ -1,0 +1,541 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public._prisma_migrations": {
+      "name": "_prisma_migrations",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(36)",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "checksum": {
+          "name": "checksum",
+          "type": "varchar(64)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "finished_at": {
+          "name": "finished_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "migration_name": {
+          "name": "migration_name",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "logs": {
+          "name": "logs",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rolled_back_at": {
+          "name": "rolled_back_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "started_at": {
+          "name": "started_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "applied_steps_count": {
+          "name": "applied_steps_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.VerificationToken": {
+      "name": "VerificationToken",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "token": {
+          "name": "token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expires": {
+          "name": "expires",
+          "type": "timestamp(3)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "VerificationToken_email_token_key": {
+          "name": "VerificationToken_email_token_key",
+          "columns": [
+            {
+              "expression": "email",
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops",
+              "isExpression": false
+            },
+            {
+              "expression": "token",
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops",
+              "isExpression": false
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "VerificationToken_token_key": {
+          "name": "VerificationToken_token_key",
+          "columns": [
+            {
+              "expression": "token",
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops",
+              "isExpression": false
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.PasswordResetToken": {
+      "name": "PasswordResetToken",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "token": {
+          "name": "token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expires": {
+          "name": "expires",
+          "type": "timestamp(3)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "PasswordResetToken_email_token_key": {
+          "name": "PasswordResetToken_email_token_key",
+          "columns": [
+            {
+              "expression": "email",
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops",
+              "isExpression": false
+            },
+            {
+              "expression": "token",
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops",
+              "isExpression": false
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "PasswordResetToken_token_key": {
+          "name": "PasswordResetToken_token_key",
+          "columns": [
+            {
+              "expression": "token",
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops",
+              "isExpression": false
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.TwoFactorToken": {
+      "name": "TwoFactorToken",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "token": {
+          "name": "token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expires": {
+          "name": "expires",
+          "type": "timestamp(3)",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "TwoFactorToken_email_token_key": {
+          "name": "TwoFactorToken_email_token_key",
+          "columns": [
+            {
+              "expression": "email",
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops",
+              "isExpression": false
+            },
+            {
+              "expression": "token",
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops",
+              "isExpression": false
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "TwoFactorToken_token_key": {
+          "name": "TwoFactorToken_token_key",
+          "columns": [
+            {
+              "expression": "token",
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops",
+              "isExpression": false
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.User": {
+      "name": "User",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "emailVerified": {
+          "name": "emailVerified",
+          "type": "timestamp(3)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image": {
+          "name": "image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "password": {
+          "name": "password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "role": {
+          "name": "role",
+          "type": "UserRole",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'USER'"
+        },
+        "isTwoFactorEnabled": {
+          "name": "isTwoFactorEnabled",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        }
+      },
+      "indexes": {
+        "User_email_key": {
+          "name": "User_email_key",
+          "columns": [
+            {
+              "expression": "email",
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops",
+              "isExpression": false
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.TwoFactorConfirmation": {
+      "name": "TwoFactorConfirmation",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "userId": {
+          "name": "userId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "TwoFactorConfirmation_userId_key": {
+          "name": "TwoFactorConfirmation_userId_key",
+          "columns": [
+            {
+              "expression": "userId",
+              "asc": true,
+              "nulls": "last",
+              "opclass": "text_ops",
+              "isExpression": false
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "TwoFactorConfirmation_userId_fkey": {
+          "name": "TwoFactorConfirmation_userId_fkey",
+          "tableFrom": "TwoFactorConfirmation",
+          "tableTo": "User",
+          "schemaTo": "public",
+          "columnsFrom": [
+            "userId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "public.Account": {
+      "name": "Account",
+      "schema": "",
+      "columns": {
+        "userId": {
+          "name": "userId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "provider": {
+          "name": "provider",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "providerAccountId": {
+          "name": "providerAccountId",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "refresh_token": {
+          "name": "refresh_token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "access_token": {
+          "name": "access_token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "token_type": {
+          "name": "token_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "scope": {
+          "name": "scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "id_token": {
+          "name": "id_token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "session_state": {
+          "name": "session_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "Account_userId_fkey": {
+          "name": "Account_userId_fkey",
+          "tableFrom": "Account",
+          "tableTo": "User",
+          "schemaTo": "public",
+          "columnsFrom": [
+            "userId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "cascade"
+        }
+      },
+      "compositePrimaryKeys": {
+        "Account_pkey": {
+          "name": "Account_pkey",
+          "columns": [
+            "provider",
+            "providerAccountId"
+          ]
+        }
+      },
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {
+    "public.UserRole": {
+      "name": "UserRole",
+      "values": [
+        "ADMIN",
+        "USER"
+      ],
+      "schema": "public"
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {}
+  }
+}
